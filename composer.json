@@ -23,7 +23,8 @@
         "friendsofphp/php-cs-fixer": "^2.5"
     },
     "conflict": {
-        "helhum/typo3-console": "<4.7.0 >4.7.0"
+        "helhum/typo3-console": "<4.7.0 >4.7.0",
+        "typo3/cms": "<8.7.4 >8.7.4"
     },
     "autoload": {
         "psr-4": {
@@ -37,6 +38,11 @@
         "patches": {
             "helhum/typo3-console": {
                 "Don't execute install:generatepackagestates during setup on platform.sh": "https://github.com/Bartacus/TYPO3-Console/compare/4.7.0...patch/4.7.0/platformsh-installation.patch"
+            },
+            "typo3/cms": {
+                "Never throw an exception if file/folder permissions are already correct": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.4...patch/8.7.4/platformsh-fixfolderstructure.patch",
+                "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.4...patch/8.7.4/platformsh-writeable-localconfiguration.patch",
+                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.4...patch/8.7.4/platformsh-enablefile.patch"
             }
         }
     }

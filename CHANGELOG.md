@@ -8,5 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Create simply bundle with nothing in it yet
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
+- Patch TYPO3 CMS to not throw up on install:setup
 
 [Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/d84fd9f...HEAD
