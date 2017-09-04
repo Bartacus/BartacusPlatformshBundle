@@ -1,0 +1,7 @@
+### Composer
+composer.lock
+composer.phar
+vendor/
+
+### PHP CS Fixer
+.php_cs.cache
