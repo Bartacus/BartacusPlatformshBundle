@@ -32,20 +32,33 @@ final class RouteResolverFactory
      */
     private $config;
 
-    public function __construct(Config $config)
+    /**
+     * @var array|null
+     */
+    private $platformshRoutesConfig;
+
+    public function __construct(Config $config, array $platformshRoutesConfig = null)
     {
         $this->config = $config;
+        $this->platformshRoutesConfig = $platformshRoutesConfig;
     }
 
     public function createResolver(): RouteResolver
     {
-        $platformRoutes = [];
+        $routes = [];
         if ($this->config->isAvailable()) {
-            $platformRoutes = $this->config->routes;
+            $routes = $this->readPlatformRoutes();
+        } elseif (null !== $this->platformshRoutesConfig) {
+            $routes = $this->readLocalRoutes();
         }
 
+        return new RouteResolver(new RouteCollection(...$routes));
+    }
+
+    private function readPlatformRoutes(): iterable
+    {
         $routes = [];
-        foreach ($platformRoutes as $resolvedUrl => $route) {
+        foreach ($this->config->routes as $resolvedUrl => $route) {
             switch ($route['type']) {
                 case 'redirect':
                     $routes[] = new PlatformshRedirectRoute($resolvedUrl, $route);
@@ -56,6 +69,24 @@ final class RouteResolverFactory
             }
         }
 
-        return new RouteResolver(new RouteCollection(...$routes));
+        return $routes;
+    }
+
+    private function readLocalRoutes(): iterable
+    {
+        $routes = [];
+        foreach ($this->platformshRoutesConfig as $originalUrl => $route) {
+            if (!\array_key_exists('.local_url', $route)) {
+                continue;
+            }
+
+            switch ($route['type']) {
+                case 'upstream':
+                    $routes[] = new LocalUpstreamRoute($originalUrl, $route);
+                    break;
+            }
+        }
+
+        return $routes;
     }
 }

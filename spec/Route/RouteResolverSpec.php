@@ -25,6 +25,7 @@ namespace spec\Bartacus\Bundle\PlatformshBundle\Route;
 
 use Bartacus\Bundle\PlatformshBundle\Exception\RouteDomainNotFound;
 use Bartacus\Bundle\PlatformshBundle\Exception\RouteNotFound;
+use Bartacus\Bundle\PlatformshBundle\Route\LocalUpstreamRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\PlatformshRedirectRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\PlatformshUpstreamRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\RouteCollection;
@@ -133,6 +134,19 @@ final class RouteResolverSpec extends ObjectBehavior
         ;
     }
 
+    public function it_resolves_local_route(): void
+    {
+        $route = new LocalUpstreamRoute('https://{default}/', [
+            '.local_url' => 'https://dev-project.test/',
+            'type' => 'upstream',
+            'upstream' => 'app:http',
+        ]);
+
+        $this->beConstructedWith(new RouteCollection($route));
+
+        $this->resolveRoute('https://{default}/')->shouldBeLike($route);
+    }
+
     public function it_resolves_route_not_found_exception(): void
     {
         $this->shouldThrow(RouteNotFound::class)->during('resolveRoute', ['https://doesnt.exist/'])
@@ -235,6 +249,19 @@ final class RouteResolverSpec extends ObjectBehavior
         $this->resolveDomain('{default}')->shouldReturn('develop-sr3snxi-projectid.eu.platform.sh');
         $this->resolveDomain('login.{default}')->shouldReturn('login.develop-sr3snxi-projectid.eu.platform.sh');
         $this->resolveDomain('idp.{default}')->shouldReturn('idp.develop-sr3snxi-projectid.eu.platform.sh');
+    }
+
+    public function it_resolves_local_domain(): void
+    {
+        $route = new LocalUpstreamRoute('https://{default}/', [
+            '.local_url' => 'https://dev-project.test/',
+            'type' => 'upstream',
+            'upstream' => 'app:http',
+        ]);
+
+        $this->beConstructedWith(new RouteCollection($route));
+
+        $this->resolveDomain('{default}')->shouldReturn('dev-project.test');
     }
 
     public function it_resolves_domain_not_found_exception(): void

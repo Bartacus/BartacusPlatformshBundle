@@ -27,6 +27,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Yaml\Yaml;
 
 class BartacusPlatformshExtension extends Extension
 {
@@ -38,5 +39,25 @@ class BartacusPlatformshExtension extends Extension
         );
 
         $loader->load('services.xml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $this->registerPlatformRoutesConfig($container, $config);
+    }
+
+    private function registerPlatformRoutesConfig(ContainerBuilder $container, array $config): void
+    {
+        $rootDir = $container->getParameter('kernel.project_dir');
+        $platformRoutesConfigPath = $rootDir.'/'.$config['platform_routes_path'];
+
+        if ($container->fileExists($platformRoutesConfigPath)) {
+            $platformRoutesConfig = \file_get_contents($platformRoutesConfigPath);
+            $platformRoutesConfig = Yaml::parse($platformRoutesConfig);
+
+            $container->setParameter('bartacus_platformsh.platform_routes_config', $platformRoutesConfig);
+        } else {
+            $container->setParameter('bartacus_platformsh.platform_routes_config', null);
+        }
     }
 }

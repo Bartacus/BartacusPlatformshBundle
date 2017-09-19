@@ -23,12 +23,14 @@ declare(strict_types=1);
 
 namespace spec\Bartacus\Bundle\PlatformshBundle\Route;
 
+use Bartacus\Bundle\PlatformshBundle\Route\LocalUpstreamRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\PlatformshUpstreamRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\RouteCollection;
 use Bartacus\Bundle\PlatformshBundle\Route\RouteResolver;
 use Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory;
 use PhpSpec\ObjectBehavior;
 use Platformsh\ConfigReader\Config;
+use Symfony\Component\Yaml\Yaml;
 
 final class RouteResolverFactorySpec extends ObjectBehavior
 {
@@ -101,6 +103,46 @@ final class RouteResolverFactorySpec extends ObjectBehavior
         $this->beConstructedWith(new Config([]));
 
         $this->createResolver()->shouldBeLike(new RouteResolver(new RouteCollection()));
+    }
+
+    public function it_uses_local_routes(): void
+    {
+        $routesConfig = \file_get_contents(\dirname(__DIR__, 2).'/Resources/fixtures/routes.yaml');
+        $routesConfig = Yaml::parse($routesConfig);
+
+        $this->beConstructedWith(new Config([]), $routesConfig);
+
+        $this->createResolver()
+            ->shouldBeLike(new RouteResolver(
+                new RouteCollection(
+                    new LocalUpstreamRoute('https://{default}/', [
+                        '.local_url' => 'https://dev-project.test/',
+                        'type' => 'upstream',
+                        'upstream' => 'app:http',
+                    ])
+                )
+            ))
+        ;
+    }
+
+    public function it_ignores_local_route_without_local_url(): void
+    {
+        $routesConfig = \file_get_contents(\dirname(__DIR__, 2).'/Resources/fixtures/routes_with_no_local.yaml');
+        $routesConfig = Yaml::parse($routesConfig);
+
+        $this->beConstructedWith(new Config([]), $routesConfig);
+
+        $this->createResolver()
+            ->shouldBeLike(new RouteResolver(
+                new RouteCollection(
+                    new LocalUpstreamRoute('https://{default}/', [
+                        '.local_url' => 'https://dev-project.test/',
+                        'type' => 'upstream',
+                        'upstream' => 'app:http',
+                    ])
+                )
+            ))
+        ;
     }
 
     /**

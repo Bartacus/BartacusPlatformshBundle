@@ -10,6 +10,7 @@
 
         <service id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory">
             <argument type="service" id="Platformsh\ConfigReader\Config" />
+            <argument>%bartacus_platformsh.platform_routes_config%</argument>
         </service>
 
         <service id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolver" public="true">
