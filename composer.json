@@ -17,14 +17,12 @@
     "require": {
         "php": "^7.1",
         "cweagans/composer-patches": "^1.6.2",
-        "symfony/symfony": "^3.3"
+        "helhum/typo3-console": "4.7.0",
+        "symfony/symfony": "^3.3",
+        "typo3/cms": "8.7.6"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.5"
-    },
-    "conflict": {
-        "helhum/typo3-console": "<4.7.0 >4.7.0",
-        "typo3/cms": "<8.7.6 >8.7.6"
     },
     "autoload": {
         "psr-4": {
@@ -32,6 +30,14 @@
         }
     },
     "extra": {
+        "helhum/typo3-console": {
+            "install-extension-dummy": false
+        },
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "extensions-in-vendor-dir": true,
+            "prepare-web-dir": false
+        },
         "branch-alias": {
             "dev-master": "1.0-dev"
         },

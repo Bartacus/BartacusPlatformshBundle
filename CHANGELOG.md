@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Change license to GPL-3.0+, because we include TYPO3 code in future
 
+### Fixed
+- Fix installation of unspecified version of TYPO3_Console which has patch conflicts
+
 ## [1.0.1] - 2017-09-08
 ### Fixed
 - Compatibility with TYPO3 8.7.6
