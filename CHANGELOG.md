@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Added
+- Add RouteResolver to resolve platform.sh routes into their environment URLs
+- Resolve routes.yaml route key like domain into their environment domain
+- Read local .platform/routes.yaml if no $PLATFORM_ROUTES is available (upstream routes only)
+
 ## [1.0.2] - 2017-09-19
 ### Changed
 - Change license to GPL-3.0+, because we include TYPO3 code in future

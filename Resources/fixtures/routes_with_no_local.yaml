@@ -1,0 +1,8 @@
+"https://{default}/":
+    .local_url: "https://dev-project.test/"
+    type: upstream
+    upstream: "app:http"
+
+"https://api.{default}/":
+    type: upstream
+    upstream: "api:http"
