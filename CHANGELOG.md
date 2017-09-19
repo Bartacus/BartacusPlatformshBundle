@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+- Change license to GPL-3.0+, because we include TYPO3 code in future
+
 ## [1.0.1] - 2017-09-08
 ### Fixed
 - Compatibility with TYPO3 8.7.6

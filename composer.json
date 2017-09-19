@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Support bundle for using Platform.sh together with Bartacus",
     "keywords": [ "typo3", "symfony", "framework", "integration", "platform.sh" ],
-    "license": "MIT",
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Patrik Karisch",
