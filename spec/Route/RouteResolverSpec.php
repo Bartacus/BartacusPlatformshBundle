@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace spec\Bartacus\Bundle\PlatformshBundle\Route;
 
+use Bartacus\Bundle\PlatformshBundle\Exception\RouteDomainNotFound;
 use Bartacus\Bundle\PlatformshBundle\Exception\RouteNotFound;
 use Bartacus\Bundle\PlatformshBundle\Route\PlatformshRedirectRoute;
 use Bartacus\Bundle\PlatformshBundle\Route\PlatformshUpstreamRoute;
@@ -136,5 +137,108 @@ final class RouteResolverSpec extends ObjectBehavior
     {
         $this->shouldThrow(RouteNotFound::class)->during('resolveRoute', ['https://doesnt.exist/'])
         ;
+    }
+
+    public function it_resolves_domain(): void
+    {
+        $routes = [
+            'https://www.develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'upstream' => 'app',
+                'original_url' => 'https://www.{default}/',
+                'ssi' => [
+                    'enabled' => false,
+                ],
+                'type' => 'upstream',
+                'cache' => [
+                    'headers' => [
+                        'Accept',
+                        'Accept-Language',
+                    ],
+                    'cookies' => [
+                        '*',
+                    ],
+                    'enabled' => false,
+                    'default_ttl' => 0,
+                ],
+            ],
+            'http://docs.develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'upstream' => 'docs',
+                'original_url' => 'https://docs.{default}/',
+                'ssi' => [
+                    'enabled' => false,
+                ],
+                'type' => 'upstream',
+                'cache' => [
+                    'headers' => [
+                        'Accept',
+                        'Accept-Language',
+                    ],
+                    'cookies' => [
+                        '*',
+                    ],
+                    'enabled' => false,
+                    'default_ttl' => 0,
+                ],
+            ],
+            'https://develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'original_url' => 'https://{default}/',
+                'type' => 'redirect',
+                'to' => 'https://www.develop-sr3snxi-projectid.eu.platform.sh/',
+            ],
+            'http://login.develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'original_url' => 'http://login.{default}/',
+                'type' => 'redirect',
+                'to' => 'https://www.develop-sr3snxi-projectid.eu.platform.sh/',
+            ],
+            'https://idp.develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'upstream' => 'app',
+                'original_url' => 'https://idp.{default}/',
+                'ssi' => [
+                    'enabled' => false,
+                ],
+                'type' => 'upstream',
+                'cache' => [
+                    'headers' => [
+                        'Accept',
+                        'Accept-Language',
+                    ],
+                    'cookies' => [
+                        '*',
+                    ],
+                    'enabled' => false,
+                    'default_ttl' => 0,
+                ],
+            ],
+            'http://idp-this-is-wrong.develop-sr3snxi-projectid.eu.platform.sh/' => [
+                'original_url' => 'http://idp.{default}/',
+                'type' => 'redirect',
+                'to' => 'https://idp.develop-sr3snxi-projectid.eu.platform.sh/',
+            ],
+        ];
+
+        $routeObjects = [];
+        foreach ($routes as $resolvedUrl => $route) {
+            switch ($route['type']) {
+                case 'redirect':
+                    $routeObjects[] = new PlatformshRedirectRoute($resolvedUrl, $route);
+                    break;
+                case 'upstream':
+                    $routeObjects[] = new PlatformshUpstreamRoute($resolvedUrl, $route);
+                    break;
+            }
+        }
+
+        $this->beConstructedWith(new RouteCollection(...$routeObjects));
+
+        $this->resolveDomain('www.{default}')->shouldReturn('www.develop-sr3snxi-projectid.eu.platform.sh');
+        $this->resolveDomain('docs.{default}')->shouldReturn('docs.develop-sr3snxi-projectid.eu.platform.sh');
+        $this->resolveDomain('{default}')->shouldReturn('develop-sr3snxi-projectid.eu.platform.sh');
+        $this->resolveDomain('login.{default}')->shouldReturn('login.develop-sr3snxi-projectid.eu.platform.sh');
+        $this->resolveDomain('idp.{default}')->shouldReturn('idp.develop-sr3snxi-projectid.eu.platform.sh');
+    }
+
+    public function it_resolves_domain_not_found_exception(): void
+    {
+        $this->shouldThrow(RouteDomainNotFound::class)->during('resolveDomain', ['doesnt.exist']);
     }
 }

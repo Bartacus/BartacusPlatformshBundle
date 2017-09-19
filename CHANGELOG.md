@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Add RouteResolver to resolve platform.sh routes into their environment URLs
+- Resolve routes.yaml route key like domain into their environment domain
 
 ## [1.0.2] - 2017-09-19
 ### Changed

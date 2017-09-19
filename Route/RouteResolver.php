@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle\Route;
 
+use Bartacus\Bundle\PlatformshBundle\Exception\RouteDomainNotFound;
 use Bartacus\Bundle\PlatformshBundle\Exception\RouteNotFound;
 use Spatie\Url\Url;
 
@@ -58,5 +59,45 @@ final class RouteResolver
             'Route "%s" could not be found.',
             $originalUrl
         ));
+    }
+
+    /**
+     * Resolves a routes.yaml key like domain to the current environment domain/host.
+     *
+     * Searches first in upstream routes before searching in redirect routes.
+     * Prefers HTTPS routes over HTTP routes.
+     *
+     * @throws RouteDomainNotFound If no route matching for $originalDomain could be found
+     */
+    public function resolveDomain(string $originalDomain): string
+    {
+        $route = $this->searchForDomainInRoutes($originalDomain, $this->routes->getUpstreamRoutes(), true)
+            ?? $this->searchForDomainInRoutes($originalDomain, $this->routes->getUpstreamRoutes(), false)
+            ?? $this->searchForDomainInRoutes($originalDomain, $this->routes->getRedirectRoutes(), true)
+            ?? $this->searchForDomainInRoutes($originalDomain, $this->routes->getRedirectRoutes(), false);
+
+        if (null === $route) {
+            throw new RouteDomainNotFound(\sprintf(
+                'Domain "%s" could not be matched in existing routes.',
+                $originalDomain
+            ));
+        }
+
+        return $route->resolvedUrl()->getHost();
+    }
+
+    private function searchForDomainInRoutes(string $domain, RouteCollection $routes, bool $https): ?RouteDefinition
+    {
+        $scheme = $https ? 'https' : 'http';
+
+        foreach ($routes as $route) {
+            if ($route->originalUrl()->getScheme() === $scheme
+                && $route->originalUrl()->getHost() === $domain
+            ) {
+                return $route;
+            }
+        }
+
+        return null;
     }
 }
