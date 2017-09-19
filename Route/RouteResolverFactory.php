@@ -39,8 +39,13 @@ final class RouteResolverFactory
 
     public function createResolver(): RouteResolver
     {
+        $platformRoutes = [];
+        if ($this->config->isAvailable()) {
+            $platformRoutes = $this->config->routes;
+        }
+
         $routes = [];
-        foreach ($this->config->routes as $resolvedUrl => $route) {
+        foreach ($platformRoutes as $resolvedUrl => $route) {
             switch ($route['type']) {
                 case 'redirect':
                     $routes[] = new PlatformshRedirectRoute($resolvedUrl, $route);

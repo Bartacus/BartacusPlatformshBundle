@@ -96,6 +96,13 @@ final class RouteResolverFactorySpec extends ObjectBehavior
         ;
     }
 
+    public function it_does_not_fail_on_empty_environment(): void
+    {
+        $this->beConstructedWith(new Config([]));
+
+        $this->createResolver()->shouldBeLike(new RouteResolver(new RouteCollection()));
+    }
+
     /**
      * @param mixed $value
      */
