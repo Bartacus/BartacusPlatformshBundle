@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Resolve routes.yaml route key like domain into their environment domain
 - Read local .platform/routes.yaml if no $PLATFORM_ROUTES is available (upstream routes only)
 
+### Changed
+- Install this bundle as TYPO3 extension
+
 ## [1.0.2] - 2017-09-19
 ### Changed
 - Change license to GPL-3.0+, because we include TYPO3 code in future
