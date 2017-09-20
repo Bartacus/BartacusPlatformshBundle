@@ -34,7 +34,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Bartacus\\Bundle\\PlatformshBundle\\": ""
+            "Bartacus\\Bundle\\PlatformshBundle\\": "",
+            "Bartacus\\BartacusPlatformsh\\Command\\": "TYPO3Command/"
         }
     },
     "extra": {
