@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Install this bundle as TYPO3 extension
 
+### Fixed
+- Add TYPO3 override to extend sys_domain.domainName to 255 chars to allow longer platform.sh domains
+
 ## [1.0.2] - 2017-09-19
 ### Changed
 - Change license to GPL-3.0+, because we include TYPO3 code in future
