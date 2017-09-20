@@ -21,4 +21,33 @@ declare(strict_types=1);
  * along with this bundle. If not, see <http://www.gnu.org/licenses/>.
  */
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 $GLOBALS['TCA']['sys_domain']['columns']['domainName']['config']['max'] = 255;
+
+//<editor-fold desc="Add a route domain name field" defaultstate="collapsed">
+$routeDomainName = [
+    'tx_bartacusplatformsh_routeDomainName' => [
+        'label' => 'Platform.sh Route Domain:',
+        'config' => [
+            'type' => 'input',
+            'size' => 35,
+            'max' => 255,
+            'eval' => 'required,unique,lower,trim,domainname',
+            'softref' => 'substitute',
+        ],
+    ],
+];
+
+ExtensionManagementUtility::addTCAcolumns('sys_domain', $routeDomainName);
+
+$GLOBALS['TCA']['sys_domain']['palettes']['domainName'] = [
+    'showitem' => 'domainName, tx_bartacusplatformsh_routeDomainName,',
+];
+
+$GLOBALS['TCA']['sys_domain']['types']['1']['showitem'] = \str_replace(
+    'domainName',
+    '--palette--;;domainName',
+    $GLOBALS['TCA']['sys_domain']['types']['1']['showitem']
+);
+//</editor-fold>
