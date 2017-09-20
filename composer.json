@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^7.1",
+        "bartacus/bartacus-bundle": "^1.0",
         "cweagans/composer-patches": "^1.6.2",
         "helhum/typo3-console": "4.7.0",
         "platformsh/config-reader": "^0.0.1",

@@ -21,6 +21,7 @@ declare(strict_types=1);
  * along with this bundle. If not, see <http://www.gnu.org/licenses/>.
  */
 
+use Bartacus\Bundle\PlatformshBundle\Evaluation\PlatformshDomainNameEvaluator;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $GLOBALS['TCA']['sys_domain']['columns']['domainName']['config']['max'] = 255;
@@ -33,7 +34,7 @@ $routeDomainName = [
             'type' => 'input',
             'size' => 35,
             'max' => 255,
-            'eval' => 'required,unique,lower,trim,domainname',
+            'eval' => 'required,unique,lower,trim,'.PlatformshDomainNameEvaluator::class,
             'softref' => 'substitute',
         ],
     ],
