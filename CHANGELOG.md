@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.1.0] - 2017-09-21
 ### Added
 - Add RouteResolver to resolve platform.sh routes into their environment URLs
 - Resolve routes.yaml route key like domain into their environment domain
@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.0.2...HEAD
+[1.1.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.0.1...1.1.0
 [1.0.2]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/d84fd9f...1.0.0
