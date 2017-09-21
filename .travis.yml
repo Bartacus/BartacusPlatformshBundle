@@ -8,6 +8,10 @@ branches:
     - master
     - /^test\/.*$/
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 before_install:
   - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
 
@@ -21,10 +25,6 @@ script:
 
   # phpSpec
   - vendor/bin/phpspec run -f progress
-
-after_script:
-  - ls -la $HOME/.composer/cache
-  - ls -la $HOME/.config/composer/cache
 
 notifications:
   slack:
