@@ -1,12 +1,12 @@
 ---
+language: php
+php:
+  - 7.1
+
 branches:
   only:
     - master
     - /^test\/.*$/
-
-language: php
-php:
-  - 7.1
 
 before_install:
   - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
