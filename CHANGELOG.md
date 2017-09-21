@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add RouteResolver to resolve platform.sh routes into their environment URLs
 - Resolve routes.yaml route key like domain into their environment domain
 - Read local .platform/routes.yaml if no $PLATFORM_ROUTES is available (upstream routes only)
+- Add a platform.sh route domain name to sys_domain records
+- Add domain:adapt command to TYPO3_Console to adapt sys_domain records to the current environment
+
+### Changed
+- Install this bundle as TYPO3 extension
+
+### Fixed
+- Add TYPO3 override to extend sys_domain.domainName to 255 chars to allow longer platform.sh domains
 
 ## [1.0.2] - 2017-09-19
 ### Changed

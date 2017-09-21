@@ -1,7 +1,7 @@
 {
     "name": "bartacus/platformsh-bundle",
-    "type": "symfony-bundle",
-    "description": "Support bundle for using Platform.sh together with Bartacus",
+    "type": "typo3-cms-extension",
+    "description": "Support bundle for using Platform.sh together with Bartacus and TYPO3",
     "keywords": [ "typo3", "symfony", "framework", "integration", "platform.sh" ],
     "license": "GPL-3.0+",
     "authors": [
@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^7.1",
+        "bartacus/bartacus-bundle": "^1.0",
         "cweagans/composer-patches": "^1.6.2",
         "helhum/typo3-console": "4.7.0",
         "platformsh/config-reader": "^0.0.1",
@@ -28,9 +29,13 @@
         "friendsofphp/php-cs-fixer": "^2.5",
         "phpspec/phpspec": "^4.0"
     },
+    "replace": {
+        "bartacus_platformsh": "self.version"
+    },
     "autoload": {
         "psr-4": {
-            "Bartacus\\Bundle\\PlatformshBundle\\": ""
+            "Bartacus\\Bundle\\PlatformshBundle\\": "",
+            "Bartacus\\BartacusPlatformsh\\Command\\": "TYPO3Command/"
         }
     },
     "extra": {
