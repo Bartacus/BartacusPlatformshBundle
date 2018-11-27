@@ -16,12 +16,12 @@
     ],
     "require": {
         "php": "^7.1",
-        "bartacus/bartacus-bundle": "^1.0",
+        "bartacus/bartacus-bundle": "^1.2",
         "cweagans/composer-patches": "^1.6.2",
         "helhum/typo3-console": "4.7.0",
         "platformsh/config-reader": "^0.0.1",
         "spatie/url": "^1.2",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "^4.1",
         "typo3/cms": "8.7.22",
         "webmozart/assert": "^1.2"
     },
@@ -30,7 +30,9 @@
         "phpspec/phpspec": "^4.0"
     },
     "replace": {
-        "bartacus_platformsh": "self.version"
+        "bartacus_platformsh": "self.version",
+        "symfony/console": "^3.0",
+        "symfony/process": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -48,7 +50,7 @@
             "prepare-web-dir": false
         },
         "branch-alias": {
-            "dev-master": "1.1-dev"
+            "dev-master": "1.2-dev"
         },
         "patches": {
             "helhum/typo3-console": {

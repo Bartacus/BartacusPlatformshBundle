@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Add support for Symfony 4, drop support for Symfony 3
 
 ## [1.1.7] - 2018-12-02
 ### Fixed
