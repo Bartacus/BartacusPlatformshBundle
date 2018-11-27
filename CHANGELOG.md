@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Add support for Symfony 4, drop support for Symfony 3
+- Compatibility with helhum/typo3-console 5.6.0
 
 ## [1.1.7] - 2018-12-02
 ### Fixed
@@ -58,7 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fix installation of unspecified version of TYPO3_Console which has patch conflicts
 
 ## [1.0.1] - 2017-09-08
-### Fixed
+### Fixed¶
 - Compatibility with TYPO3 8.7.6
 
 ## [1.0.0] - 2017-09-05

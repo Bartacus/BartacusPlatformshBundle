@@ -18,7 +18,7 @@
         "php": "^7.1",
         "bartacus/bartacus-bundle": "^1.2",
         "cweagans/composer-patches": "^1.6.2",
-        "helhum/typo3-console": "4.7.0",
+        "helhum/typo3-console": "^5.6",
         "platformsh/config-reader": "^0.0.1",
         "spatie/url": "^1.2",
         "symfony/symfony": "^4.1",
@@ -30,9 +30,7 @@
         "phpspec/phpspec": "^4.0"
     },
     "replace": {
-        "bartacus_platformsh": "self.version",
-        "symfony/console": "^3.0",
-        "symfony/process": "^3.0"
+        "bartacus_platformsh": "self.version"
     },
     "autoload": {
         "psr-4": {
@@ -53,9 +51,6 @@
             "dev-master": "1.2-dev"
         },
         "patches": {
-            "helhum/typo3-console": {
-                "Don't execute install:generatepackagestates during setup on platform.sh": "https://github.com/Bartacus/TYPO3-Console/compare/4.7.0...patch/4.7.0/platformsh-installation.patch"
-            },
             "typo3/cms": {
                 "Never throw an exception if file/folder permissions are already correct": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.22...patch/8.7.22/platformsh-fixfolderstructure.patch",
                 "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.22...patch/8.7.22/platformsh-writeable-localconfiguration.patch",
