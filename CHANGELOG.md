@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.7] - 2018-12-02
+### Fixed
+- Compatibility with TYPO3 8.7.22
+
 ## [1.1.6] - 2018-11-14
 ### Fixed
 - Compatibility with TYPO3 8.7.20
@@ -61,7 +65,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.6...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...HEAD
+[1.1.7]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.4...1.1.5
 [1.1.4]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.3...1.1.4
