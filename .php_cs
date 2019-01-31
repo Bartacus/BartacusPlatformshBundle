@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of the Bartacus Platform.sh bundle.
  *
- * Copyright (c) 2017 Patrik Karisch
+ * Copyright (c) Emily Karisch
  *
  * This bundle is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ $commonFinder = PhpCsFixer\Finder::create()
 $header = <<<'EOF'
 This file is part of the Bartacus Platform.sh bundle.
 
-Copyright (c) 2017 Patrik Karisch
+Copyright (c) Emily Karisch
 
 This bundle is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
