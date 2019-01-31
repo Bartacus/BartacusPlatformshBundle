@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Support for TYPO3 9.5
+- Minimal required Symfony version is 4.2
 
 ## [1.2.0] - 2019-01-31
 ### Changed

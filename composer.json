@@ -14,14 +14,17 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "bartacus/bartacus-bundle": "^1.2",
-        "cweagans/composer-patches": "^1.6.2",
+        "php": "^7.2",
+        "bartacus/bartacus-bundle": "^2.0@dev",
         "helhum/typo3-console": "^5.6",
-        "platformsh/config-reader": "^0.0.1",
+        "platformsh/config-reader": "^1.0",
         "spatie/url": "^1.2",
-        "symfony/symfony": "^4.1",
-        "typo3/cms": "8.7.22",
+        "symfony/config": "^4.2",
+        "symfony/dependency-injection": "^4.2",
+        "symfony/http-kernel": "^4.2",
+        "symfony/yaml": "^4.2",
+        "typo3/cms-core": "^9.5",
+        "typo3/cms-extbase": "^9.5",
         "webmozart/assert": "^1.2"
     },
     "require-dev": {
@@ -41,20 +44,8 @@
         "helhum/typo3-console": {
             "install-extension-dummy": false
         },
-        "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "extensions-in-vendor-dir": true,
-            "prepare-web-dir": false
-        },
         "branch-alias": {
             "dev-master": "2.0.x-dev"
-        },
-        "patches": {
-            "typo3/cms": {
-                "Never throw an exception if file/folder permissions are already correct": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.22...patch/8.7.22/platformsh-fixfolderstructure.patch",
-                "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.22...patch/8.7.22/platformsh-writeable-localconfiguration.patch",
-                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/Bartacus/TYPO3.CMS/compare/8.7.22...patch/8.7.22/platformsh-enablefile.patch"
-            }
         }
     }
 }
