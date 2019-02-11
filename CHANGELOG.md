@@ -9,10 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Support for TYPO3 9.5
 - Minimal required Symfony version is 4.2
 
+## [1.2.1] - 2019-02-11
+### Fixed
+- Compatibility with TYPO3 8.7.24 and upwards
+
 ## [1.2.0] - 2019-01-31
 ### Changed
 - Add support for Symfony 4, drop support for Symfony 3
 - Compatibility with helhum/typo3-console 5.6.0
+
+## [1.1.8] - 2019-02-11
+### Fixed
+- Compatibility with TYPO3 8.7.24 and upwards
 
 ## [1.1.7] - 2018-12-02
 ### Fixed
@@ -73,8 +81,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...1.2.0
+[1.1.8]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...1.1.8
 [1.1.7]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.6...1.1.7
 [1.1.6]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.5...1.1.6
 [1.1.5]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.4...1.1.5
