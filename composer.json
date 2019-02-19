@@ -51,6 +51,9 @@
         "patches": {
             "typo3/cms-core": {
                 "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/TYPO3/TYPO3.CMS/compare/9.5...Bartacus:patch/9.5/core/platformsh-writeable-localconfiguration.patch"
+            },
+            "typo3/cms-install": {
+                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/9.5...Bartacus:patch/9.5/install/platformsh-enablefile.patch"
             }
         }
     }
