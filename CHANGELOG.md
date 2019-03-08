@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fix the command name of the `domain:adapt` command
 
 ## [1.2.1] - 2019-02-11
 ### Fixed
