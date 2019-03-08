@@ -26,7 +26,7 @@ use Helhum\Typo3Console\Core\Booting\RunLevel;
 
 return [
     'commands' => [
-        'bartacus_platformsh:domain:adapt' => [
+        'domain:adapt' => [
             'vendor' => 'bartacus_platformsh',
             'controller' => DomainCommandController::class,
             'controllerCommandName' => 'adapt',

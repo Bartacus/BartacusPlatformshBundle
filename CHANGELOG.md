@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Support for TYPO3 9.5
 - Minimal required Symfony version is 4.2
 
+## [1.2.2] - 2019-03-08
+### Fixed
+- Fix the command name of the `domain:adapt` command
+
 ## [1.2.1] - 2019-02-11
 ### Fixed
 - Compatibility with TYPO3 8.7.24 and upwards
@@ -81,7 +85,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.1...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.2...HEAD
+[1.2.2]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...1.2.0
 [1.1.8]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...1.1.8
