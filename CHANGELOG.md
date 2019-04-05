@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.0.0] - 2019-04-05
 ### Changed
 - Support for TYPO3 9.5 only
 - Minimal required Symfony version is 4.2
@@ -88,7 +90,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.2...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.2...2.0.0
 [1.2.2]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.1.7...1.2.0
