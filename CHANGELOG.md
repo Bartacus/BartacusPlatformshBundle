@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Support for TYPO3 9.5 only
 - Minimal required Symfony version is 4.2
 
+### Breaking
+- The `platform_routes_path` config value must be an absolute path, e.g. `%kernel.project_dir%/../.platform/routes.yaml`
+
 ## [1.2.2] - 2019-03-08
 ### Fixed
 - Fix the command name of the `domain:adapt` command

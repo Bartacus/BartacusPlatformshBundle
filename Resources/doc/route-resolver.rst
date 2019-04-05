@@ -74,4 +74,4 @@ If you have multi-app projects, your ``.platform/routes.yaml`` doesn't live in p
 
     # config/packages/bartacus_platformsh.yaml
     bartacus_platformsh:
-        platform_routes_path: '../.platform/routes.yaml'
+        platform_routes_path: '%kernel.project_dir%/../.platform/routes.yaml'

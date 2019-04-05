@@ -36,8 +36,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('platform_routes_path')
-                    ->defaultValue('.platform/routes.yaml')
-                    ->info('The path to the routes.yaml file with ".local_url" keys relative to %kernel.project_dir%')
+                    ->defaultValue('%kernel.project_dir%/.platform/routes.yaml')
+                    ->info('The path to the routes.yaml file with ".local_url" keys')
                 ->end()
             ->end()
         ;

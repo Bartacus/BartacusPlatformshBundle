@@ -48,11 +48,8 @@ class BartacusPlatformshExtension extends Extension
 
     private function registerPlatformRoutesConfig(ContainerBuilder $container, array $config): void
     {
-        $rootDir = $container->getParameter('kernel.project_dir');
-        $platformRoutesConfigPath = $rootDir.'/'.$config['platform_routes_path'];
-
-        if ($container->fileExists($platformRoutesConfigPath)) {
-            $platformRoutesConfig = \file_get_contents($platformRoutesConfigPath);
+        if ($container->fileExists($config['platform_routes_path'])) {
+            $platformRoutesConfig = \file_get_contents($config['platform_routes_path']);
             $platformRoutesConfig = Yaml::parse($platformRoutesConfig);
 
             $container->setParameter('bartacus_platformsh.platform_routes_config', $platformRoutesConfig);
