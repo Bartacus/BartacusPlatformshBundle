@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Support for TYPO3 9.5
+- Support for TYPO3 9.5 only
 - Minimal required Symfony version is 4.2
 
 ## [1.2.2] - 2019-03-08
