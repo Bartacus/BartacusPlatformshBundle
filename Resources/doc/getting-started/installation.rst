@@ -17,7 +17,7 @@ Open a command console, enter your project directory and execute:
 
 .. code-block:: bash
 
-    $ composer require bartacus/platformsh-bundle
+    $ composer require bartacus/platformsh-bundle platformsh/symfonyflex-bridge
 
 Since there is no public recipe yet, follow the instructions in the :ref:`getting-started-configuration`
 
