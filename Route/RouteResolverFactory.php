@@ -46,7 +46,7 @@ final class RouteResolverFactory
     public function createResolver(): RouteResolver
     {
         $routes = [];
-        if ($this->config->isAvailable()) {
+        if ($this->config->inRuntime()) {
             $routes = $this->readPlatformRoutes();
         } elseif (null !== $this->platformshRoutesConfig) {
             $routes = $this->readLocalRoutes();
@@ -58,7 +58,7 @@ final class RouteResolverFactory
     private function readPlatformRoutes(): iterable
     {
         $routes = [];
-        foreach ($this->config->routes as $resolvedUrl => $route) {
+        foreach ($this->config->routes() as $resolvedUrl => $route) {
             switch ($route['type']) {
                 case 'redirect':
                     $routes[] = new PlatformshRedirectRoute($resolvedUrl, $route);

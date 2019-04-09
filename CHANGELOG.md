@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Breaking
+- Updated to use `platformsh/config-reader` @ `^2.1`
 
 ## [2.0.1] - 2019-04-10
 ### Fixed
