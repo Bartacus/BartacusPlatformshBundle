@@ -47,7 +47,7 @@
             "install-extension-dummy": false
         },
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-master": "2.1.x-dev"
         },
         "patches": {
             "typo3/cms-core": {
