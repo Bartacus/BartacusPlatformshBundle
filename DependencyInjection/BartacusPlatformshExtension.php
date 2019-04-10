@@ -40,10 +40,15 @@ class BartacusPlatformshExtension extends Extension
 
         $loader->load('services.xml');
 
-        $configuration = new Configuration();
+        $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
         $this->registerPlatformRoutesConfig($container, $config);
+    }
+
+    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
+    {
+        return new Configuration($container->getParameter('kernel.project_dir'));
     }
 
     private function registerPlatformRoutesConfig(ContainerBuilder $container, array $config): void

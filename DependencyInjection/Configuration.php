@@ -28,6 +28,16 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
+    /**
+     * @var string
+     */
+    private $kernelProjectDir;
+
+    public function __construct(string $kernelProjectDir)
+    {
+        $this->kernelProjectDir = $kernelProjectDir;
+    }
+
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
@@ -36,7 +46,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('platform_routes_path')
-                    ->defaultValue('%kernel.project_dir%/.platform/routes.yaml')
+                    ->defaultValue($this->kernelProjectDir.'/.platform/routes.yaml')
                     ->info('The path to the routes.yaml file with ".local_url" keys')
                 ->end()
             ->end()
