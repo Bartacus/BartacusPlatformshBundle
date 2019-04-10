@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- New `typo3_mysql` credential formatter for easy formatting of the typo3 database connection
+
 ### Breaking
 - Updated to use `platformsh/config-reader` @ `^2.1`
 

@@ -4,7 +4,15 @@
         xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Platformsh\ConfigReader\Config" public="true" />
+        <service id="Platformsh\ConfigReader\Config" public="true">
+            <call method="registerFormatter">
+                <argument>typo3_mysql</argument>
+                <argument type="collection">
+                    <argument>Bartacus\Bundle\PlatformshBundle\CredentialFormatter\DatabaseCredentialFormatter</argument>
+                    <argument>formatMysql</argument>
+                </argument>
+            </call>
+        </service>
 
         <service id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory">
             <argument type="service" id="Platformsh\ConfigReader\Config" />
