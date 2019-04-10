@@ -16,4 +16,5 @@ Contents
     :maxdepth: 2
 
     getting-started/index
+    config-reader
     route-resolver
