@@ -23,31 +23,16 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle\CredentialFormatter;
 
-class DatabaseCredentialFormatter implements CredentialFormatterInterface
+/**
+ * A CredentialFormatter knows itself which formatters are supported and registered.
+ */
+interface CredentialFormatterInterface
 {
-    public static function getFormatters(): array
-    {
-        return [
-            'typo3_mysql' => 'formatMysql',
-        ];
-    }
-
-    public function formatMysql(array $credentials): array
-    {
-        return \array_merge([
-            'driver' => 'mysqli',
-            'charset' => 'utf8mb4',
-        ], $this->formatCredentials($credentials));
-    }
-
-    private function formatCredentials(array $credentials): array
-    {
-        return [
-            'host' => $credentials['host'],
-            'port' => $credentials['port'],
-            'dbname' => $credentials['path'],
-            'user' => $credentials['username'],
-            'password' => $credentials['password'],
-        ];
-    }
+    /**
+     * Returns an array of formatter name and the callable to use.
+     *
+     * The array keys are the formatter names and the value can be
+     * the method name to call.
+     */
+    public static function getFormatters(): array;
 }

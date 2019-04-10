@@ -23,8 +23,14 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle;
 
+use Bartacus\Bundle\PlatformshBundle\DependencyInjection\Compiler\CredentialFormatterPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class BartacusPlatformshBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        $container->addCompilerPass(new CredentialFormatterPass());
+    }
 }
