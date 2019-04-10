@@ -5,6 +5,9 @@
 
     <services>
         <service id="Platformsh\ConfigReader\Config" public="true" />
+        <service id="Bartacus\Bundle\PlatformshBundle\CredentialFormatter\DatabaseCredentialFormatter">
+            <tag name="bartacus.platformsh.credential_formatter" />
+        </service>
 
         <service id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory">
             <argument type="service" id="Platformsh\ConfigReader\Config" />

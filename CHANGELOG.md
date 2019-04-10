@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- New `typo3_mysql` credential formatter for easy formatting of the typo3 database connection
+- Allow to register your own credential formatter with the DI tag `bartacus.platformsh.credential_formatter`
+- Auto configure `bartacus.platformsh.credential_formatter` with interface `CredentialFormatterInterface`
+
+### Breaking
+- Updated to use `platformsh/config-reader` @ `^2.1`
 
 ## [2.0.1] - 2019-04-10
 ### Fixed

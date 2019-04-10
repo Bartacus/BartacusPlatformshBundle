@@ -21,16 +21,18 @@ declare(strict_types=1);
  * along with this bundle. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bartacus\Bundle\PlatformshBundle;
+namespace Bartacus\Bundle\PlatformshBundle\CredentialFormatter;
 
-use Bartacus\Bundle\PlatformshBundle\DependencyInjection\Compiler\CredentialFormatterPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class BartacusPlatformshBundle extends Bundle
+/**
+ * A CredentialFormatter knows itself which formatters are supported and registered.
+ */
+interface CredentialFormatterInterface
 {
-    public function build(ContainerBuilder $container)
-    {
-        $container->addCompilerPass(new CredentialFormatterPass());
-    }
+    /**
+     * Returns an array of formatter name and the callable to use.
+     *
+     * The array keys are the formatter names and the value can be
+     * the method name to call.
+     */
+    public static function getFormatters(): array;
 }
