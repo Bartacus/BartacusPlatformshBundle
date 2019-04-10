@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - New `typo3_mysql` credential formatter for easy formatting of the typo3 database connection
 - Allow to register your own credential formatter with the DI tag `bartacus.platformsh.credential_formatter`
+- Auto configure `bartacus.platformsh.credential_formatter` with interface `CredentialFormatterInterface`
 
 ### Breaking
 - Updated to use `platformsh/config-reader` @ `^2.1`

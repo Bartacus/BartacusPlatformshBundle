@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle\DependencyInjection;
 
+use Bartacus\Bundle\PlatformshBundle\DependencyInjection\Compiler\CredentialFormatterPass;
 use Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -45,6 +46,10 @@ class BartacusPlatformshExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $this->registerPlatformRoutesConfig($container, $config);
+
+        $container->registerForAutoconfiguration(CredentialFormatterPass::class)
+            ->addTag('bartacus.platformsh.credential_formatter')
+        ;
     }
 
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration

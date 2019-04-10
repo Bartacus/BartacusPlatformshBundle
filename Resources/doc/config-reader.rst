@@ -52,4 +52,6 @@ Tag your credential formatter service with ``bartacus.platformsh.credential_form
         App/CredentialFormatter/SolrCredentialFormatter:
             tags: ['bartacus.platformsh.credential_formatter']
 
+If you have auto configure activated, your credential formatter will be automatically registered as one, without any configuration needed.
+
 .. _`credential formatters`: https://github.com/platformsh/config-reader-php#formatting-service-credentials
