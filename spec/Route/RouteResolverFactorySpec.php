@@ -37,6 +37,7 @@ final class RouteResolverFactorySpec extends ObjectBehavior
     public function let(): void
     {
         $mockEnv = [
+            'PLATFORM_APPLICATION_NAME' => 'app',
             'PLATFORM_ENVIRONMENT' => 'develop',
             'PLATFORM_ROUTES' => $this->encode([
                 'https://www.develop-sr3snxi-projectid.eu.platform.sh/' => [
