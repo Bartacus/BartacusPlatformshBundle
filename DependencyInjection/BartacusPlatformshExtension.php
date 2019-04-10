@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle\DependencyInjection;
 
+use Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -57,9 +58,9 @@ class BartacusPlatformshExtension extends Extension
             $platformRoutesConfig = \file_get_contents($config['platform_routes_path']);
             $platformRoutesConfig = Yaml::parse($platformRoutesConfig);
 
-            $container->setParameter('bartacus_platformsh.platform_routes_config', $platformRoutesConfig);
-        } else {
-            $container->setParameter('bartacus_platformsh.platform_routes_config', null);
+            $container->getDefinition(RouteResolverFactory::class)
+                ->replaceArgument(1, $platformRoutesConfig)
+            ;
         }
     }
 }
