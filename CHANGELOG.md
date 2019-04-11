@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.1.0] - 2019-04-11
 ### Added
 - New `typo3_mysql` credential formatter for easy formatting of the typo3 database connection
 - Allow to register your own credential formatter with the DI tag `bartacus.platformsh.credential_formatter`
@@ -101,7 +103,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.2...2.0.0
 [1.2.2]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/1.2.1...1.2.2
