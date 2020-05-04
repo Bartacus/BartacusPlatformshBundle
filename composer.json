@@ -43,13 +43,16 @@
             "Bartacus\\Bundle\\PlatformshBundle\\": ""
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "helhum/typo3-console": {
             "install-extension-dummy": false
         },
         "branch-alias": {
             "dev-master": "2.1.x-dev",
-            "dev-typo3-v10-support": "3.1.x-dev"
+            "dev-symfony-5-0-support": "3.0.x-dev"
         },
         "patches": {
             "typo3/cms-core": {
