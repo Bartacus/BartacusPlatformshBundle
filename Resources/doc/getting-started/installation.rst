@@ -5,10 +5,10 @@ Installation
 Requirements
 ============
 
-* PHP 7.2
-* Symfony 4
-* TYPO3 9.5 in `Composer mode`_
-* BartacusBundle ^2.0
+* PHP 7.3
+* Symfony 5
+* TYPO3 10.4 in `Composer mode`_
+* BartacusBundle ^3.0
 
 Applications that use Symfony Flex
 ==================================
