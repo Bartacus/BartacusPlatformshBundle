@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-05-13
+### Added
+- Compatibility with TYPO3 10.4 LTS
+- Support symfony ^5.0
+### Removed
+- Command `domain:adapt`
+- Support symfony ^4.0
+
 ## [2.1.0] - 2019-04-11
 ### Added
 - New `typo3_mysql` credential formatter for easy formatting of the typo3 database connection

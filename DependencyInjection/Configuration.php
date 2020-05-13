@@ -40,8 +40,8 @@ class Configuration implements ConfigurationInterface
 
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bartacus_platformsh');
+        $treeBuilder = new TreeBuilder('bartacus_platformsh');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()

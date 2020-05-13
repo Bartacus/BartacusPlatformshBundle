@@ -38,13 +38,6 @@ Since one domain can exist as https and http route and either as upstream or red
 
     The ``RouteResolver`` doesn't work with the ``{all}`` placeholder in the moment. You can only resolve explicit routes.
 
-TYPO3 domain records
-====================
-
-If you need to add a domain record to your TYPO3 installation, there is a new field called `Platform.sh Route Domain:` ``tx_bartacusplatformsh_routeDomainName]`` where you should add your configured route, e.g. ``www.{default}``.
-
-The command ``vendor/bin/typo3cms domain:adapt`` will update it to the correct domain on your Platform.sh environment, execute it in the ``post_deploy`` hook.
-
 Local development
 =================
 

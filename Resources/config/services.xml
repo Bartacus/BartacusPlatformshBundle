@@ -17,12 +17,5 @@
         <service id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolver" public="true">
             <factory service="Bartacus\Bundle\PlatformshBundle\Route\RouteResolverFactory" method="createResolver" />
         </service>
-
-        <service id="Bartacus\BartacusPlatformsh\Command\DomainCommandController">
-            <call method="setRouteResolver">
-                <argument type="service" id="Bartacus\Bundle\PlatformshBundle\Route\RouteResolver" />
-            </call>
-            <tag name="bartacus.make_instance" />
-        </service>
     </services>
 </container>

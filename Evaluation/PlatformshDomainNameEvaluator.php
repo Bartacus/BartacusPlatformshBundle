@@ -23,8 +23,6 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle\Evaluation;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 class PlatformshDomainNameEvaluator
 {
     /**
@@ -41,7 +39,7 @@ class PlatformshDomainNameEvaluator
         $value = \str_replace('{default}', 'PSHDEFAULT', $value);
 
         if (!\preg_match('/^[a-z0-9.\\-]*$/i', $value)) {
-            $value = GeneralUtility::idnaEncode($value);
+            $value = idn_to_ascii($value, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
         }
 
         $value = \str_replace('PSHDEFAULT', '{default}', $value);

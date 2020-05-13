@@ -9,53 +9,57 @@
             "name": "Emily Karisch"
         },
         {
+            "name": "Simon Kendler"
+        },
+        {
             "name": "pixelart GmbH",
             "homepage": "https://www.pixelart.at"
         }
     ],
     "require": {
         "php": "^7.2",
-        "bartacus/bartacus-bundle": "^2.0",
+        "bartacus/bartacus-bundle": "^3.0",
         "cweagans/composer-patches": "^1.6.5",
-        "helhum/typo3-console": "^5.6",
         "platformsh/config-reader": "^2.1",
         "spatie/url": "^1.2",
-        "symfony/config": "^4.2",
-        "symfony/dependency-injection": "^4.2",
-        "symfony/http-kernel": "^4.2",
-        "symfony/yaml": "^4.2",
-        "typo3/cms-core": "^9.5",
-        "typo3/cms-extbase": "^9.5",
-        "typo3/cms-install": "^9.5",
+        "symfony/config": "^5.0",
+        "symfony/dependency-injection": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/yaml": "^5.0",
+        "typo3/cms-core": "^10.4",
+        "typo3/cms-extbase": "^10.4",
+        "typo3/cms-install": "^10.4",
         "webmozart/assert": "^1.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.5",
-        "phpspec/phpspec": "^4.0"
+        "phpspec/phpspec": "^6.0"
     },
     "replace": {
         "bartacus_platformsh": "self.version"
     },
     "autoload": {
         "psr-4": {
-            "Bartacus\\Bundle\\PlatformshBundle\\": "",
-            "Bartacus\\BartacusPlatformsh\\Command\\": "TYPO3Command/"
+            "Bartacus\\Bundle\\PlatformshBundle\\": ""
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "helhum/typo3-console": {
             "install-extension-dummy": false
         },
         "branch-alias": {
-            "dev-master": "2.1.x-dev"
+            "dev-master": "3.0.x-dev"
         },
         "patches": {
             "typo3/cms-core": {
-                "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/TYPO3/TYPO3.CMS/compare/9.5...Bartacus:patch/9.5/core/platformsh-writeable-localconfiguration.patch"
+                "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/core/platformsh-writeable-localconfiguration.patch"
             },
             "typo3/cms-install": {
-                "Never throw an exception if file/folder permissions are already correct": "https://github.com/TYPO3/TYPO3.CMS/compare/9.5...Bartacus:patch/9.5/install/platformsh-fixfolderstructure.patch",
-                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/9.5...Bartacus:patch/9.5/install/platformsh-enablefile.patch"
+                "Never throw an exception if file/folder permissions are already correct": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-fixfolderstructure.patch",
+                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-enablefile.patch"
             }
         }
     }

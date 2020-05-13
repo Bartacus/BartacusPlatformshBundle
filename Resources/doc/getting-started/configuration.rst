@@ -129,7 +129,6 @@ A simple starting configuration for your app. Put it as ``.platform.app.yaml`` i
 
             vendor/bin/typo3cms install:fixfolderstructure
 
-            vendor/bin/typo3cms domain:adapt
             vendor/bin/typo3cms upgrade:all
 
     crons:
