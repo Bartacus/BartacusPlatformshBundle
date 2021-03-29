@@ -35,9 +35,6 @@
         "friendsofphp/php-cs-fixer": "^2.5",
         "phpspec/phpspec": "^6.0"
     },
-    "replace": {
-        "bartacus_platformsh": "self.version"
-    },
     "autoload": {
         "psr-4": {
             "Bartacus\\Bundle\\PlatformshBundle\\": ""
@@ -61,6 +58,9 @@
                 "Never throw an exception if file/folder permissions are already correct": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-fixfolderstructure.patch",
                 "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-enablefile.patch"
             }
+        },
+        "typo3/cms": {
+            "extension-key": "bartacus_platformsh"
         }
     }
 }
