@@ -27,10 +27,10 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'Base',
     'author' => 'Emily Karisch',
     'state' => 'stable',
-    'version' => '3.0.0',
+    'version' => '4.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-10.4.99',
+            'typo3' => '10.4.0-11.9.99',
         ],
     ],
 ];
