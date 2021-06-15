@@ -26,9 +26,9 @@
         "symfony/dependency-injection": "^5.0",
         "symfony/http-kernel": "^5.0",
         "symfony/yaml": "^5.0",
-        "typo3/cms-core": "^10.4",
-        "typo3/cms-extbase": "^10.4",
-        "typo3/cms-install": "^10.4",
+        "typo3/cms-core": "^10.4 || ^11.2",
+        "typo3/cms-extbase": "^10.4 || ^11.2",
+        "typo3/cms-install": "^10.4 || ^11.2",
         "webmozart/assert": "^1.2"
     },
     "require-dev": {
