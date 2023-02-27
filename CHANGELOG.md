@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Drop deprecated docs and meta config
 - Drop PHP cs fixer
 - Drop TYPO3 v10 support
+- Drop phpspec/phpspec
 
 ## [3.1.0] - 2021-10-06
 ### Added
