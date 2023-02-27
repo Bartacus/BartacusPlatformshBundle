@@ -27,17 +27,10 @@ use Platformsh\ConfigReader\Config;
 
 final class RouteResolverFactory
 {
-    /**
-     * @var Config
-     */
-    private $config;
+    private Config $config;
+    private ?array $platformshRoutesConfig;
 
-    /**
-     * @var array|null
-     */
-    private $platformshRoutesConfig;
-
-    public function __construct(Config $config, array $platformshRoutesConfig = null)
+    public function __construct(Config $config, ?array $platformshRoutesConfig = null)
     {
         $this->config = $config;
         $this->platformshRoutesConfig = $platformshRoutesConfig;
@@ -46,6 +39,7 @@ final class RouteResolverFactory
     public function createResolver(): RouteResolver
     {
         $routes = [];
+
         if ($this->config->inRuntime()) {
             $routes = $this->readPlatformRoutes();
         } elseif (null !== $this->platformshRoutesConfig) {
@@ -58,6 +52,7 @@ final class RouteResolverFactory
     private function readPlatformRoutes(): iterable
     {
         $routes = [];
+
         foreach ($this->config->routes() as $resolvedUrl => $route) {
             switch ($route['type']) {
                 case 'redirect':
@@ -75,15 +70,14 @@ final class RouteResolverFactory
     private function readLocalRoutes(): iterable
     {
         $routes = [];
+
         foreach ($this->platformshRoutesConfig as $originalUrl => $route) {
             if (!\array_key_exists('.local_url', $route)) {
                 continue;
             }
 
-            switch ($route['type']) {
-                case 'upstream':
-                    $routes[] = new LocalUpstreamRoute($originalUrl, $route);
-                    break;
+            if ('upstream' === $route['type']) {
+                $routes[] = new LocalUpstreamRoute($originalUrl, $route);
             }
         }
 

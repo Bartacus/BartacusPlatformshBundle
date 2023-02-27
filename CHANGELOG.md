@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Applied PHP strict types
+- Increase minimum composer package versions
+
+### Fixed
+- Fixed PHP inspection warnings and errors
+
+### Removed
+- Drop deprecated docs and meta config
+- Drop PHP cs fixer
+- Drop TYPO3 v10 support
+- Drop phpspec/phpspec
+
 ## [3.1.0] - 2021-10-06
 ### Added
 - TYPO3 v11.5 support

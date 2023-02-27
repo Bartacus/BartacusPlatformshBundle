@@ -29,20 +29,9 @@ use Webmozart\Assert\Assert;
 
 final class PlatformshRedirectRoute implements RedirectRoute
 {
-    /**
-     * @var UriInterface
-     */
-    private $originalUrl;
-
-    /**
-     * @var UriInterface
-     */
-    private $resolvedUrl;
-
-    /**
-     * @var string
-     */
-    private $to;
+    private UriInterface $originalUrl;
+    private UriInterface $resolvedUrl;
+    private UriInterface $to;
 
     public function __construct(string $resolvedUrl, array $route)
     {

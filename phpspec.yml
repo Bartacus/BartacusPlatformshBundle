@@ -1,7 +1,0 @@
-formatter.name: pretty
-
-suites:
-    contest:
-        namespace: Bartacus\Bundle\PlatformshBundle\
-        psr4_prefix: Bartacus\Bundle\PlatformshBundle\
-        src_path: .

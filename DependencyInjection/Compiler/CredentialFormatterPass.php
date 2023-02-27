@@ -32,6 +32,10 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class CredentialFormatterPass implements CompilerPassInterface
 {
+    /**
+     * @throws \ReflectionException
+     * @throws InvalidArgumentException
+     */
     public function process(ContainerBuilder $container): void
     {
         if (!$container->has(Config::class)) {
@@ -46,18 +50,23 @@ class CredentialFormatterPass implements CompilerPassInterface
             $def = $container->getDefinition($id);
 
             // We must assume that the class value has been correctly filled, even if the service is created by a factory
-            $class = $def->getClass();
+            $r = $container->getReflectionClass($def->getClass());
 
-            if (!$r = $container->getReflectionClass($class)) {
-                throw new InvalidArgumentException(\sprintf('Class "%s" used for service "%s" cannot be found.', $class, $id));
+            if (!$r) {
+                throw new InvalidArgumentException(\sprintf('Class "%s" used for service "%s" cannot be found.', $def->getClass(), $id));
             }
 
             if (!$r->isSubclassOf(CredentialFormatterInterface::class)) {
-                throw new InvalidArgumentException(\sprintf('Service "%s" must implement interface "%s".', $id, CredentialFormatterInterface::class));
+                throw new InvalidArgumentException(\sprintf(
+                    'Service "%s" must implement interface "%s".',
+                    $id,
+                    CredentialFormatterInterface::class
+                ));
             }
 
             /** @var CredentialFormatterInterface $class */
             $class = $r->name;
+
             foreach ($class::getFormatters() as $name => $method) {
                 $args = [$name, [new Reference($id), $method]];
                 $definition->addMethodCall('registerFormatter', $args);

@@ -29,20 +29,9 @@ use Webmozart\Assert\Assert;
 
 final class PlatformshUpstreamRoute implements UpstreamRoute
 {
-    /**
-     * @var UriInterface
-     */
-    private $originalUrl;
-
-    /**
-     * @var UriInterface
-     */
-    private $resolvedUrl;
-
-    /**
-     * @var string
-     */
-    private $upstream;
+    private UriInterface $originalUrl;
+    private UriInterface $resolvedUrl;
+    private string $upstream;
 
     public function __construct(string $resolvedUrl, array $route)
     {
@@ -55,7 +44,7 @@ final class PlatformshUpstreamRoute implements UpstreamRoute
         $this->originalUrl = Url::fromString($route['original_url']);
 
         Assert::keyExists($route, 'upstream', 'Missing key upstream in $route.');
-        $this->upstream = $route['upstream'];
+        $this->upstream = (string) $route['upstream'];
     }
 
     public function originalUrl(): UriInterface

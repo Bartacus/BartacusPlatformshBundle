@@ -21,16 +21,19 @@ declare(strict_types=1);
  * along with this bundle. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * @noinspection PhpUndefinedVariableInspection
+ */
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Bartacus Platform.sh Bundle',
-    'description' => 'Support bundle for using Platform.sh together with Bartacus and TYPO§3',
+    'description' => 'Support bundle for using Platform.sh together with Bartacus and TYPO3',
     'category' => 'Base',
     'author' => 'Emily Karisch',
     'state' => 'stable',
     'version' => '4.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-11.9.99',
+            'typo3' => '11.5.0-11.9.99',
         ],
     ],
 ];

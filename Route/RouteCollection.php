@@ -28,7 +28,7 @@ final class RouteCollection implements \IteratorAggregate
     /**
      * @var RouteDefinition[]
      */
-    private $routes;
+    private array $routes;
 
     public function __construct(RouteDefinition ...$routes)
     {
