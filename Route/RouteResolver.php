@@ -29,10 +29,7 @@ use Spatie\Url\Url;
 
 final class RouteResolver
 {
-    /**
-     * @var RouteCollection
-     */
-    private $routes;
+    private RouteCollection $routes;
 
     public function __construct(RouteCollection $routes)
     {

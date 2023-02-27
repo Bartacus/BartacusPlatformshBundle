@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Bartacus Platform.sh bundle.
  *
@@ -19,6 +21,6 @@
  * along with this bundle. If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ('BE' === \TYPO3_MODE) {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][\Bartacus\Bundle\PlatformshBundle\Evaluation\PlatformshDomainNameEvaluator::class] = '';
-}
+use Bartacus\Bundle\PlatformshBundle\Evaluation\PlatformshDomainNameEvaluator;
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][PlatformshDomainNameEvaluator::class] = '';

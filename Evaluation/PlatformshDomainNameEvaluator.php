@@ -42,8 +42,6 @@ class PlatformshDomainNameEvaluator
             $value = idn_to_ascii($value, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
         }
 
-        $value = \str_replace('PSHDEFAULT', '{default}', $value);
-
-        return $value;
+        return \str_replace('PSHDEFAULT', '{default}', $value);
     }
 }

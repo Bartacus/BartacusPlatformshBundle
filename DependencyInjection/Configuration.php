@@ -28,10 +28,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * @var string
-     */
-    private $kernelProjectDir;
+    private string $kernelProjectDir;
 
     public function __construct(string $kernelProjectDir)
     {

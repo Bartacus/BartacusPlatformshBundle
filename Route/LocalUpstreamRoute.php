@@ -29,22 +29,11 @@ use Webmozart\Assert\Assert;
 
 final class LocalUpstreamRoute implements UpstreamRoute
 {
-    /**
-     * @var UriInterface
-     */
-    private $originalUrl;
+    private UriInterface $originalUrl;
+    private UriInterface $resolvedUrl;
+    private string $upstream;
 
-    /**
-     * @var UriInterface
-     */
-    private $resolvedUrl;
-
-    /**
-     * @var string
-     */
-    private $upstream;
-
-    public function __construct(string $originalUrl, $route)
+    public function __construct(string $originalUrl, array $route)
     {
         Assert::keyExists($route, 'type', 'It seems $route is not a valid route');
         Assert::same($route['type'], 'upstream', '$route is not an upstream route, wrong type: '.$route['type']);

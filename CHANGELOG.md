@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Applied PHP strict types
+
+### Fixed
+- Fixed PHP inspection warnings and errors
+
 ### Removed
 - Drop deprecated docs and meta config
 - Drop PHP cs fixer
