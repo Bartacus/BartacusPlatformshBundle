@@ -19,16 +19,16 @@
     "require": {
         "php": "^8.0",
         "composer-runtime-api": "^2.1",
-        "cweagans/composer-patches": "^1.6.5",
-        "platformsh/config-reader": "^2.1",
-        "spatie/url": "^1.2",
-        "symfony/config": "^5.0",
-        "symfony/dependency-injection": "^5.0",
-        "symfony/http-kernel": "^5.0",
-        "symfony/yaml": "^5.0",
+        "cweagans/composer-patches": "^1.7",
+        "platformsh/config-reader": "^2.4",
+        "spatie/url": "^2.2",
+        "symfony/config": "^5.4",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "symfony/yaml": "^5.4",
         "typo3/cms-core": "^11.5",
         "typo3/cms-extbase": "^11.5",
-        "webmozart/assert": "^1.2"
+        "webmozart/assert": "^1.11"
     },
     "autoload": {
         "psr-4": {
