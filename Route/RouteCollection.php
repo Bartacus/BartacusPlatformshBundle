@@ -38,7 +38,7 @@ final class RouteCollection implements \IteratorAggregate
     /**
      * @return RouteDefinition[]
      */
-    public function getIterator(): iterable
+    public function getIterator(): \Traversable
     {
         $routes = [];
         foreach ($this->routes as $route) {
