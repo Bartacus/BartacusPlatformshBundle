@@ -17,7 +17,8 @@
         }
     ],
     "require": {
-        "bartacus/bartacus-bundle": "^3.0",
+        "php": "^8.0",
+        "composer-runtime-api": "^2.1",
         "cweagans/composer-patches": "^1.6.5",
         "platformsh/config-reader": "^2.1",
         "spatie/url": "^1.2",
@@ -25,9 +26,8 @@
         "symfony/dependency-injection": "^5.0",
         "symfony/http-kernel": "^5.0",
         "symfony/yaml": "^5.0",
-        "typo3/cms-core": "^10.4 || ^11.2",
-        "typo3/cms-extbase": "^10.4 || ^11.2",
-        "typo3/cms-install": "^10.4 || ^11.2",
+        "typo3/cms-core": "^11.5",
+        "typo3/cms-extbase": "^11.5",
         "webmozart/assert": "^1.2"
     },
     "require-dev": {
@@ -39,7 +39,12 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": true,
+            "cweagans/composer-patches": true
+        }
     },
     "extra": {
         "helhum/typo3-console": {
