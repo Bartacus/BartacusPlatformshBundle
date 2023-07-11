@@ -28,12 +28,12 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'Bartacus Platform.sh Bundle',
     'description' => 'Support bundle for using Platform.sh together with Bartacus and TYPO3',
     'category' => 'Base',
-    'author' => 'Emily Karisch',
+    'author' => 'Stefan Herndler',
     'state' => 'stable',
-    'version' => '3.2.0',
+    'version' => '4.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.5.0-11.9.99',
+            'typo3' => '12.4.0-12.9.99',
         ],
     ],
 ];

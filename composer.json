@@ -6,7 +6,7 @@
     "license": "GPL-3.0-or-later",
     "authors": [
         {
-            "name": "Emily Karisch"
+            "name": "Stefan Herndler"
         },
         {
             "name": "Simon Kendler"
@@ -17,17 +17,17 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "composer-runtime-api": "^2.1",
         "cweagans/composer-patches": "^1.7",
         "platformsh/config-reader": "^2.4",
         "spatie/url": "^2.2",
-        "symfony/config": "^5.4",
-        "symfony/dependency-injection": "^5.4",
-        "symfony/http-kernel": "^5.4",
-        "symfony/yaml": "^5.4",
-        "typo3/cms-core": "^11.5",
-        "typo3/cms-extbase": "^11.5",
+        "symfony/config": "^6.2",
+        "symfony/dependency-injection": "^6.2",
+        "symfony/http-kernel": "^6.2",
+        "symfony/yaml": "^6.2",
+        "typo3/cms-core": "^12.4",
+        "typo3/cms-extbase": "^12.4",
         "webmozart/assert": "^1.11"
     },
     "autoload": {
@@ -48,12 +48,9 @@
             "install-extension-dummy": false
         },
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "4.0.x-dev"
         },
         "patches": {
-            "typo3/cms-core": {
-                "Use platform.sh setup specific dir on LocalConfiguration.php write check": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/core/platformsh-writeable-localconfiguration.patch"
-            },
             "typo3/cms-install": {
                 "Never throw an exception if file/folder permissions are already correct": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-fixfolderstructure.patch",
                 "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-enablefile.patch"
