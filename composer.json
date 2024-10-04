@@ -52,7 +52,6 @@
         },
         "patches": {
             "typo3/cms-install": {
-                "Never throw an exception if file/folder permissions are already correct": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-fixfolderstructure.patch",
                 "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-enablefile.patch"
             }
         },
