@@ -17,17 +17,18 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
         "composer-runtime-api": "^2.1",
         "cweagans/composer-patches": "^1.7",
         "platformsh/config-reader": "^2.4",
-        "spatie/url": "^2.2",
-        "symfony/config": "^6.2",
-        "symfony/dependency-injection": "^6.2",
-        "symfony/http-kernel": "^6.2",
-        "symfony/yaml": "^6.2",
-        "typo3/cms-core": "^12.4",
-        "typo3/cms-extbase": "^12.4",
+        "spatie/url": "^2.4",
+        "symfony/config": "^7.1",
+        "symfony/dependency-injection": "^7.1",
+        "symfony/http-kernel": "^7.1",
+        "symfony/yaml": "^7.1",
+        "typo3/cms-core": "^13.4",
+        "typo3/cms-extbase": "^13.4",
+        "typo3/cms-install": "^13.4",
         "webmozart/assert": "^1.11"
     },
     "autoload": {
@@ -44,11 +45,8 @@
         }
     },
     "extra": {
-        "helhum/typo3-console": {
-            "install-extension-dummy": false
-        },
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "5.0.x-dev"
         },
         "patches": {
             "typo3/cms-install": {
