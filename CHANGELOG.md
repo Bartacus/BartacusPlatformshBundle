@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [5.0.1] - 2026-05-19
+### Added
+- Allow custom YAML tags in .platform routing
+
 ## [5.0.0] - 2024-11-14
 ### Added
 - TYPO3 v13.4 support
@@ -145,8 +149,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/5.0.0...HEAD
-[4.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/4.0.1...5.0.0
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/5.0.1...HEAD
+[5.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/5.0.0...5.0.1
+[5.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/4.0.1...5.0.0
 [4.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/4.0.0...4.0.1
 [4.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/3.2.0...4.0.0
 [3.2.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/3.1.0...3.2.0

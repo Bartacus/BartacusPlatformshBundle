@@ -64,7 +64,7 @@ class BartacusPlatformshExtension extends Extension
     {
         if ($container->fileExists($config['platform_routes_path'])) {
             $platformRoutesConfig = \file_get_contents($config['platform_routes_path']);
-            $platformRoutesConfig = Yaml::parse($platformRoutesConfig);
+            $platformRoutesConfig = Yaml::parse($platformRoutesConfig, Yaml::PARSE_CUSTOM_TAGS);
 
             $container->getDefinition(RouteResolverFactory::class)
                 ->replaceArgument(1, $platformRoutesConfig)
