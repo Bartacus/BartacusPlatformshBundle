@@ -1,8 +1,8 @@
 {
     "name": "bartacus/platformsh-bundle",
     "type": "typo3-cms-extension",
-    "description": "Support bundle for using Platform.sh together with Bartacus and TYPO3",
-    "keywords": [ "typo3", "symfony", "framework", "integration", "platform.sh" ],
+    "description": "Support bundle for using Upsun together with TYPO3",
+    "keywords": [ "typo3", "symfony", "framework", "integration", "platform.sh", "upsun" ],
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -13,45 +13,31 @@
         },
         {
             "name": "pixelart GmbH",
-            "homepage": "https://www.pixelart.at"
+            "homepage": "https://www.pixelart-agency.com"
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
+        "ext-mbstring": "*",
         "composer-runtime-api": "^2.1",
-        "cweagans/composer-patches": "^1.7",
         "platformsh/config-reader": "^2.4",
-        "spatie/url": "^2.4",
-        "symfony/config": "^7.1",
-        "symfony/dependency-injection": "^7.1",
-        "symfony/http-kernel": "^7.1",
-        "symfony/yaml": "^7.1",
-        "typo3/cms-core": "^13.4",
-        "typo3/cms-extbase": "^13.4",
-        "typo3/cms-install": "^13.4",
-        "webmozart/assert": "^1.11"
+        "typo3/cms-core": "^14.3"
     },
     "autoload": {
         "psr-4": {
-            "Bartacus\\Bundle\\PlatformshBundle\\": ""
+            "Bartacus\\Bundle\\PlatformshBundle\\": "Classes/"
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "typo3/cms-composer-installers": true,
-            "typo3/class-alias-loader": true,
-            "cweagans/composer-patches": true
+            "typo3/class-alias-loader": true
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.0.x-dev"
-        },
-        "patches": {
-            "typo3/cms-install": {
-                "Resolve writeable symlinks to ENABLE_INSTALL_TOOL and FIRST_INSTALL file": "https://github.com/TYPO3/TYPO3.CMS/compare/v10.4.1...Bartacus:patch/10.4/install/platformsh-enablefile.patch"
-            }
+            "dev-master": "6.0.x-dev"
         },
         "typo3/cms": {
             "extension-key": "bartacus_platformsh"
