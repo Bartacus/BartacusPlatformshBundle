@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [6.0.1]
+### Removed
+- Remove deprecated TYPO3 extension config files
+
 ## [6.0.0] - 2026-07-12
 ### Breaking Changes
 - Removed existing Upsun Route handling and replaced it by simple detection
@@ -156,7 +160,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Patch TYPO3 Console to remove install:generatepackagestates execution from install:setup command
 - Patch TYPO3 CMS to not throw up on install:setup
 
-[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/6.0.0...HEAD
+[Unreleased]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/6.0.1...HEAD
+[6.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/5.0.1...6.0.0
 [5.0.1]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/Bartacus/BartacusPlatformshBundle/compare/4.0.1...5.0.0
