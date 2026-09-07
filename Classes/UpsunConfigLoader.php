@@ -21,7 +21,6 @@ declare(strict_types=1);
 
 namespace Bartacus\Bundle\PlatformshBundle;
 
-use Platformsh\ConfigReader\Config;
 use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -37,8 +36,11 @@ class UpsunConfigLoader
         'extbase',
     ];
 
-    private static ?Config $config = null;
+    private static ?UpsunConfigReader $config = null;
 
+    /**
+     * @throws \Exception
+     */
     public static function getApplicationInformation(): array
     {
         return (new self())->getConfig()->application();
@@ -58,13 +60,19 @@ class UpsunConfigLoader
 
     public function getConfigId(): ?string
     {
-        if (!$this->isActive()) {
-            return null;
+        if ($this->isActive()) {
+            try {
+                return self::getApplicationInformation()['config_id'] ?? null;
+            } catch (\Exception) {
+            }
         }
 
-        return self::getApplicationInformation()['config_id'] ?? null;
+        return null;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function applyRedisCaching(string $relationshipName = 'rediscache'): void
     {
         $credentials = $this->getCredentials($relationshipName);
@@ -95,6 +103,9 @@ class UpsunConfigLoader
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     public function applyDatabaseConfiguration(string $relationshipName = 'database'): void
     {
         $credentials = $this->getCredentials($relationshipName);
@@ -126,13 +137,16 @@ class UpsunConfigLoader
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     public function applySolrService(string $relationshipNamePrefix = 'solrsearch'): void
     {
-        if (!$relationshipNamePrefix) {
+        if (!$relationshipNamePrefix || !$this->isActive()) {
             return;
         }
 
-        foreach ($this->getAllRelationships() as $relationshipName => $relationship) {
+        foreach ($this->getConfig()->getRelationships() as $relationshipName => $relationship) {
             // ignore all non-Solr relationships
             if (!str_starts_with($relationshipName, $relationshipNamePrefix) || !$this->hasRelationship($relationshipName)) {
                 continue;
@@ -154,44 +168,38 @@ class UpsunConfigLoader
     }
 
     /**
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
-    public function mapRoutes(array $siteIdentifiers = ['main']): void
+    public function mapRoutes(array $routeIds = ['main']): void
     {
-        if (!$siteIdentifiers || !$this->isActive()) {
+        if (!$routeIds || !$this->isActive()) {
             return;
         }
 
         // match an Upsun route to each site
         // and throw an exception if the route was not found by id
-        foreach ($siteIdentifiers as $siteIdentifier) {
-            $route = $this->getConfig()->getRoute($siteIdentifier);
+        foreach ($routeIds as $routeId) {
+            $route = $this->getConfig()->getRoute($routeId);
 
-            $envVarName = 'TYPO3_BASE_DOMAIN_'.mb_strtoupper($siteIdentifier);
+            $envVarName = 'TYPO3_BASE_DOMAIN_'.mb_strtoupper($routeId);
             $envVarValue = (string) $route['url'];
 
             EnvironmentHelper::setEnvVar($envVarName, $envVarValue);
         }
     }
 
-    private function getConfig(): Config
+    private function getConfig(): UpsunConfigReader
     {
         if (!self::$config) {
-            self::$config = new Config();
+            self::$config = new UpsunConfigReader();
         }
 
         return self::$config;
     }
 
-    private function getAllRelationships(): array
-    {
-        if ($this->isActive()) {
-            return $this->getConfig()->application()['relationships'] ?? [];
-        }
-
-        return [];
-    }
-
+    /**
+     * @throws \Exception
+     */
     private function getCredentials(string $relationship): ?array
     {
         if (!$this->hasRelationship($relationship)) {
@@ -201,6 +209,9 @@ class UpsunConfigLoader
         return $this->getConfig()->credentials($relationship);
     }
 
+    /**
+     * @throws \Exception
+     */
     private function hasRelationship(string $relationship): bool
     {
         return $relationship && $this->isActive() && $this->getConfig()->hasRelationship($relationship);
